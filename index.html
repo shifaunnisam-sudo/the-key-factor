@@ -64,6 +64,8 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .brand-group {
@@ -103,6 +105,7 @@
       gap: 16px;
       margin-left: auto;
       margin-right: 16px;
+      flex-wrap: wrap;
     }
 
     .pill {
@@ -223,7 +226,6 @@
     .hero-text-content {
       font-family: "Short Stack", sans-serif;
       font-weight: 400;
-      font-size: 150px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -317,7 +319,7 @@
     }
 
     /* ---------------------------------------------------- */
-    /* 4. EXPEDITION MAP (90% width with background image)  */
+    /* 4. EXPEDITION MAP                                    */
     /* ---------------------------------------------------- */
     .map-section {
       width: 100%;
@@ -332,6 +334,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 10px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .map-header-title {
@@ -552,9 +556,7 @@
       50% { transform: translateY(-5px); }
     }
 
-    /* ---------------------------------------------------- */
-    /* EXPANDED ISLAND FILLER SLOTS                         */
-    /* ---------------------------------------------------- */
+    /* FILLER SLOTS */
     .filler-slot {
       position: absolute;
       pointer-events: none;
@@ -611,6 +613,7 @@
       gap: 20px;
       box-shadow: 0 8px 0 rgba(89, 191, 197, 0.25);
       transition: all 0.3s ease;
+      flex-wrap: wrap;
     }
 
     .knowledge-banner-card.locked-banner {
@@ -674,7 +677,7 @@
     }
 
     /* ---------------------------------------------------- */
-    /* 6. SSC PRACTICE BOARD (TEST YOUR KNOWLEDGE PAGE)     */
+    /* 6. SSC PRACTICE BOARD                                */
     /* ---------------------------------------------------- */
     .ssc-problem-card {
       background: var(--sand-bg);
@@ -726,7 +729,7 @@
     }
 
     /* ---------------------------------------------------- */
-    /* 7. NORMAL CLEAN FOOTER                               */
+    /* 7. FOOTER                                            */
     /* ---------------------------------------------------- */
     .normal-footer {
       width: 100%;
@@ -746,7 +749,7 @@
     }
 
     /* ---------------------------------------------------- */
-    /* 8. MODULE PAGES CONTENT STYLING (95% WIDTH)          */
+    /* 8. MODULE PAGES                                      */
     /* ---------------------------------------------------- */
     .module-wrapper {
       width: 95%;
@@ -846,7 +849,6 @@
       display: none;
     }
 
-    /* CHARACTER HEAD ICON STYLES */
     .char-head-icon {
       width: 48px;
       height: 48px;
@@ -857,7 +859,6 @@
       flex-shrink: 0;
     }
 
-    /* 3x3 GRID FOR ACTIVITY 1 (9 CARDS) - TOGGLE FLIP ENABLED */
     .flip-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -935,7 +936,6 @@
       border-color: var(--error-dark);
     }
 
-    /* FEEDBACK ACTION CARD STYLING */
     .feedback-action-box {
       background: #FFFFFF;
       border: 3px solid var(--tidal-breeze);
@@ -946,9 +946,6 @@
       text-align: center;
     }
 
-    /* ---------------------------------------------------- */
-    /* TRADITIONAL LONG DIVISION STYLES (BIGGER & FULL STEPS) */
-    /* ---------------------------------------------------- */
     .division-cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1027,6 +1024,57 @@
       border-radius: 6px;
       display: inline-block;
     }
+
+    /* ==================================================== */
+    /* RESPONSIVE MEDIA QUERIES FOR ALL DEVICES             */
+    /* ==================================================== */
+    @media (max-width: 1024px) {
+      .hero-header {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 15px;
+      }
+      .peeking-column {
+        display: none; /* Hide decorative peeking column on tablets/mobiles */
+      }
+      .hero-image-slot {
+        max-width: 350px;
+        margin: 0 auto;
+      }
+      .bubble-title {
+        font-size: 55px;
+        letter-spacing: 2px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 10px 15px;
+        justify-content: center;
+      }
+      .nav-pills {
+        margin: 0 auto;
+        justify-content: center;
+      }
+      .pill {
+        width: 130px;
+        font-size: 11px;
+      }
+      .map-stage {
+        overflow-x: auto;
+        min-width: 650px; /* Allows smooth horizontal scrolling on mobile map */
+      }
+      .map-section {
+        overflow-x: auto;
+        padding: 0 10px;
+      }
+      .module-card {
+        padding: 20px;
+      }
+      .bubble-title {
+        font-size: 40px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1083,7 +1131,7 @@
       </div>
     </section>
 
-    <!-- Seamless Island Map Section (90% width with background image) -->
+    <!-- Seamless Island Map Section -->
     <section class="map-section" id="mapSection">
       <div class="map-header-bar">
         <h2 class="map-header-title">Equation Islands Expedition Path</h2>
@@ -1298,7 +1346,7 @@
           <button class="complete-module-btn" onclick="unlockModuleStep(4)">READY FOR ACTIVITY 01 ➔</button>
         </div>
 
-        <!-- STEP 4: ACTIVITY 1 - 3x3 GRID OF FLIP CARDS WITH TOGGLE FLIP ENABLED -->
+        <!-- STEP 4: ACTIVITY 1 -->
         <div class="story-card hidden-step" id="m1-step-4" style="margin-top: 30px;">
           <h3 style="font-family: 'Short Stack', cursive; color: var(--coral-drift); font-size: 22px; margin-bottom: 6px;">Activity 01: Is it a Polynomial or Not? (3x3 Grid)</h3>
           <p style="font-family: 'Short Stack', cursive; font-size: 15px; font-weight: 800; margin-bottom: 16px;">
@@ -1369,7 +1417,7 @@
           </div>
         </div>
 
-        <!-- STEP 5: ACTIVITY 2 - CREATE YOUR OWN POLYNOMIAL -->
+        <!-- STEP 5: ACTIVITY 2 -->
         <div class="story-card hidden-step" id="m1-step-5" style="margin-top: 30px;">
           <h3 style="font-family: 'Short Stack', cursive; color: var(--coral-drift); font-size: 22px; margin-bottom: 12px;">Activity 02: Create Your Own Polynomial</h3>
           <p style="font-family: 'Short Stack', cursive; font-size: 16px; font-weight: 800; margin-bottom: 16px;">
@@ -1393,7 +1441,7 @@
   </div>
 
 
-  <!-- PAGE 4: MODULE 02 (FACTORS CAVE - RESTORED TO ORIGINAL CODE) -->
+  <!-- PAGE 4: MODULE 02 (FACTORS CAVE) -->
   <div id="module-2" class="page-view">
     <main class="module-wrapper">
       <div class="module-card">
@@ -1411,7 +1459,7 @@
           </div>
 
           <div class="dialogue-box" style="display: flex; gap: 16px; align-items: flex-start; background-color: rgba(255, 127, 102, 0.1); border: 2.5px solid var(--coral-drift); border-radius: 20px; padding: 20px;">
-            <img src="Arya.png" alt="Arya" class="char-head-icon" onerror="this.src='m1.png';">
+            <img src="arya.png" alt="Arya" class="char-head-icon" onerror="this.src='m1.png';">
             <div>
               <h4 style="font-family: 'Short Stack', cursive; color: var(--coral-drift); font-size: 18px; margin-bottom: 4px;">Arya</h4>
               <p style="font-family: 'Short Stack', cursive; font-size: 16px; font-weight: 800; color: var(--ocean-depths);">"Don't worry! Think of factors like splitting treasure chests evenly without leaving any leftover gold coins. Let's inspect how division works!"</p>
@@ -1427,7 +1475,7 @@
           </p>
         </div>
 
-        <!-- TRADITIONAL LONG DIVISION CARDS (BIGGER, UNIFORM SIZING) -->
+        <!-- TRADITIONAL LONG DIVISION CARDS -->
         <div class="puzzle-box" style="margin-bottom: 24px;">
           <div class="puzzle-q">📐 Traditional Division Inspector</div>
           
@@ -1490,7 +1538,7 @@
           </div>
         </div>
 
-        <!-- ACTIVITY 3: 5 QUESTIONS PROGRESSIVE CHALLENGE -->
+        <!-- ACTIVITY 3 -->
         <div class="puzzle-box">
           <div id="mod2-concept" class="puzzle-q">🗝️ Activity 03: Find Out Which One Is a Factor (<span id="act3-q-num">1</span>/5)</div>
           <p id="act3-question-text" style="font-family: 'Short Stack', cursive; font-weight: 800; margin-bottom: 12px; font-size: 17px;"></p>
@@ -1504,7 +1552,7 @@
           </div>
         </div>
 
-        <!-- CONDITIONAL FINISHING DIALOGUE (Appears after Activity 3 is completed) -->
+        <!-- CONDITIONAL FINISHING DIALOGUE -->
         <div id="mod2-finishing-dialogue" class="dialogue-box" style="display: none; gap: 16px; align-items: flex-start; background-color: rgba(72, 187, 120, 0.1); border: 2.5px solid var(--success-green); border-radius: 20px; padding: 20px; margin-top: 20px;">
           <img src="tara.png" alt="Tara" class="char-head-icon" onerror="this.src='m1.png';">
           <div>
@@ -1518,14 +1566,14 @@
   </div>
 
 
-  <!-- PAGE 5: MODULE 03 (UPDATED WITH VIDEO REPLACING NARRATION, ZERO BALANCE RULE, NUMBER LINE & CLICK SOLUTION) -->
+  <!-- PAGE 5: MODULE 03 (ISLAND ESCAPE) -->
   <div id="module-3" class="page-view">
     <main class="module-wrapper">
       <div class="module-card">
         <a class="back-home-link" onclick="switchPage('home', true)">← Back to Island Map</a>
         <h2 class="module-title">Module 03: Island Escape Gate</h2>
 
-        <!-- SECTION 1: DIALOGUE BETWEEN FRIENDS -->
+        <!-- SECTION 1 -->
         <div class="puzzle-box" style="margin-bottom: 24px;">
           <div class="dialogue-box" style="display: flex; gap: 16px; align-items: flex-start; background-color: rgba(167, 207, 230, 0.2); border: 2.5px solid var(--tidal-breeze); border-radius: 20px; padding: 20px; margin-bottom: 16px;">
             <img src="tara.png" alt="Tara" class="char-head-icon" onerror="this.src='m1.png';">
@@ -1544,7 +1592,7 @@
           </div>
         </div>
 
-        <!-- SECTION 2: VIDEO REPLACING ARYA'S NARRATION -->
+        <!-- SECTION 2: VIDEO -->
         <div class="puzzle-box" style="margin-bottom: 24px; text-align: center;">
           <div class="puzzle-q" style="text-align: left;">🎬 Arya's Escape Story</div>
           <div style="position: relative; width: 100%; max-width: 800px; margin: 0 auto; border-radius: 16px; overflow: hidden; border: 3px solid var(--tidal-breeze); box-shadow: 0 8px 16px rgba(76,132,163,0.2);">
@@ -1555,7 +1603,7 @@
           </div>
         </div>
 
-        <!-- SECTION 3: TRANSITION FROM DIGITAL TO NON-DIGITAL -->
+        <!-- SECTION 3 -->
         <div class="puzzle-box" style="margin-bottom: 24px;">
           <div class="dialogue-box" style="display: flex; gap: 16px; align-items: flex-start; background-color: rgba(255, 127, 102, 0.1); border: 2.5px solid var(--coral-drift); border-radius: 20px; padding: 20px; margin-bottom: 16px;">
             <img src="tara.png" alt="Tara" class="char-head-icon" onerror="this.src='m1.png';">
@@ -1566,7 +1614,7 @@
           </div>
 
           <div class="dialogue-box" style="display: flex; gap: 16px; align-items: flex-start; background-color: rgba(167, 207, 230, 0.2); border: 2.5px solid var(--tidal-breeze); border-radius: 20px; padding: 20px;">
-            <img src="Arya.png" alt="Arya" class="char-head-icon" onerror="this.src='m1.png';">
+            <img src="arya.png" alt="Arya" class="char-head-icon" onerror="this.src='m1.png';">
             <div>
               <h4 style="font-family: 'Short Stack', cursive; color: var(--coral-drift); font-size: 18px; margin-bottom: 4px;">Arya</h4>
               <p style="font-family: 'Short Stack', cursive; font-size: 16px; font-weight: 800; color: var(--ocean-depths);">"So... I switched from the digital screen to a physical non-digital board and used algebraic tiles to balance everything out!"</p>
@@ -1574,7 +1622,7 @@
           </div>
         </div>
 
-        <!-- SECTION 4: ZERO BALANCE RULE -->
+        <!-- SECTION 4 -->
         <div class="puzzle-box" style="margin-bottom: 24px;">
           <div class="puzzle-q">⚖️ The Zero Balance Rule</div>
           <p style="font-family: 'Short Stack', cursive; font-size: 16px; font-weight: 800; margin-bottom: 12px; line-height: 1.6;">
@@ -1582,7 +1630,7 @@
           </p>
         </div>
 
-        <!-- SECTION 5: NUMBER LINE & TILE EXPLANATION -->
+        <!-- SECTION 5 -->
         <div class="puzzle-box" style="margin-bottom: 24px;">
           <div class="puzzle-q">📈 Number Line & Tile Balancing Act</div>
           <p style="font-family: 'Short Stack', cursive; font-size: 16px; font-weight: 800; margin-bottom: 14px; line-height: 1.6;">
@@ -1590,7 +1638,7 @@
           </p>
         </div>
 
-        <!-- SECTION 6: CLICK-TO-OPEN SOLUTION SECTION -->
+        <!-- SECTION 6 -->
         <div class="puzzle-box">
           <div class="puzzle-q">⛵ Final Escape Challenge & Solution</div>
           <p style="font-family: 'Short Stack', cursive; font-weight: 800; margin-bottom: 12px;">Solve for (x - 4)(x + 10). What is the positive root?</p>
@@ -1625,7 +1673,6 @@
     let act1Passed = false;
     let act2Passed = false;
 
-    /* Activity 3 Questions Data (5 questions total for Module 2) */
     const act3Questions = [
       { target: 36, options: [5, 7, 8, 9], correct: 9 },
       { target: 45, options: [6, 7, 8, 9], correct: 9 },
@@ -1931,7 +1978,7 @@
 
       if (knowledgeUnlocked) {
         knowledgeBanner.classList.remove('locked-banner');
-        knowledgeBannerTitle.innerHTML = '<span></span> Ready for the Practice Board?';
+        knowledgeBannerTitle.innerHTML = '<span>⚡</span> Ready for the Practice Board?';
         knowledgeBannerDesc.textContent = 'Review core factorization sums and inspect step-by-step solutions now that all stages are unlocked!';
         knowledgeBannerBtn.disabled = false;
         knowledgeBannerBtn.classList.remove('locked-btn');
