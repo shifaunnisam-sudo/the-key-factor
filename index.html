@@ -1548,7 +1548,7 @@
         <div class="puzzle-box" style="margin-bottom: 24px; text-align: center;">
           <div class="puzzle-q" style="text-align: left;">🎬 Arya's Escape Story</div>
           <div style="position: relative; width: 100%; max-width: 800px; margin: 0 auto; border-radius: 16px; overflow: hidden; border: 3px solid var(--tidal-breeze); box-shadow: 0 8px 16px rgba(76,132,163,0.2);">
-            <video controls style="width: 100%; height: auto; display: block; background: #000;">
+            <video controls preload="none" style="width: 100%; height: auto; display: block; background: #000;">
               <source src="escape story.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -1748,7 +1748,7 @@
     }
 
     function returnFromKnowledge() {
-      alert("🎉 Congratulations on completing the SSC practice board! You can reset the module now using the RESET button if you'd like to practice again.");
+      alert("🎉 Congratulations on completing the practice board! You can reset the module now using the RESET button if you'd like to practice again.");
       switchPage('home', true);
     }
 
